@@ -1,0 +1,323 @@
+/* ============================================================
+   Mohammad Rajabi — minimal portfolio
+   Colors, type and spacing are all defined here.
+   ============================================================ */
+
+:root {
+  --bg: #0B0D10;
+  --text: #E6E8EB;
+  --muted: #9299A3;
+  --accent: #8AA4C8;
+  --border: #252A32;
+
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: #FFFFFF;
+  --text: #17191D;
+  --muted: #666D78;
+  --accent: #365D8D;
+  --border: #E5E7EB;
+
+  color-scheme: light;
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3 {
+  margin: 0 0 12px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+h1 {
+  font-size: clamp(1.85rem, 5vw, 2.3rem);
+  letter-spacing: -0.025em;
+  margin-bottom: 10px;
+}
+
+h2 { font-size: 1.2rem; }
+h3 { font-size: 1rem; }
+
+p { margin: 0 0 18px; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 2px; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection { background: var(--accent); color: var(--bg); }
+
+.skip-link { position: absolute; left: -9999px; top: 0; }
+.skip-link:focus {
+  left: 24px;
+  top: 12px;
+  z-index: 10;
+  padding: 8px 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 14px;
+}
+
+/* ---------- Layout ---------- */
+
+.container {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+main {
+  padding-top: 64px;
+  padding-bottom: 88px;
+}
+
+.section {
+  margin-top: 56px;
+  padding-top: 56px;
+  border-top: 1px solid var(--border);
+}
+
+.section:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+/* ---------- Header ---------- */
+
+.site-header { border-bottom: 1px solid var(--border); }
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 24px;
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
+.brand {
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-size: 14px;
+}
+
+.nav a { color: var(--muted); }
+.nav a:hover { color: var(--text); text-decoration: none; }
+.nav a[aria-current="page"] { color: var(--text); }
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.theme-toggle:hover { color: var(--text); }
+
+/* ---------- Text helpers ---------- */
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 22px;
+}
+
+.meta {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 10px;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+
+.lede {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-bottom: 36px;
+}
+
+/* ---------- Inline link rows ---------- */
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+}
+
+/* ---------- Areas of interest ---------- */
+
+.areas {
+  display: grid;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.areas li {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 0 12px;
+}
+
+.areas .num {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  padding-top: 4px;
+}
+
+.areas h3 { margin: 0 0 4px; }
+
+.areas p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* ---------- Call to action ---------- */
+
+.cta {
+  display: inline-block;
+  margin-top: 6px;
+  padding-bottom: 6px;
+  font-size: clamp(1.1rem, 3.4vw, 1.35rem);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+}
+
+.cta:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  text-decoration: none;
+}
+
+/* ---------- Works list ---------- */
+
+.work-item {
+  padding: 36px 0;
+  border-top: 1px solid var(--border);
+}
+
+.work-item:last-child { padding-bottom: 0; }
+
+.work-item h2 {
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+}
+
+.work-item h2 a { color: var(--text); }
+.work-item h2 a:hover { color: var(--accent); text-decoration: none; }
+
+.work-item p:not(.meta) {
+  color: var(--muted);
+  font-size: 0.97rem;
+}
+
+.more {
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 14px;
+}
+
+/* ---------- Article pages ---------- */
+
+.article .lede { margin-bottom: 32px; }
+
+.back {
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  padding: 28px 0 40px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 24px;
+}
+
+.footer-inner p { margin: 0; }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 600px) {
+  main { padding-top: 44px; padding-bottom: 64px; }
+  .section { margin-top: 44px; padding-top: 44px; }
+  .nav { gap: 18px; }
+  .work-item { padding: 30px 0; }
+}
