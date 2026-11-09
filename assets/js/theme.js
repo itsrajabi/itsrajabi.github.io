@@ -1,6 +1,7 @@
 (function () {
   var STORAGE_KEY = 'theme';
   var root = document.documentElement;
+  var DEFAULT = 'light';
 
   // Apply the saved theme before first paint to avoid a flash of the wrong theme.
   var stored = null;
@@ -10,10 +11,12 @@
 
   if (stored === 'light' || stored === 'dark') {
     root.setAttribute('data-theme', stored);
+  } else {
+    root.setAttribute('data-theme', DEFAULT);
   }
 
   function currentTheme() {
-    return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
   }
 
   function updateToggles() {
